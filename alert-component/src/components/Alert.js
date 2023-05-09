@@ -1,13 +1,11 @@
 import {Component} from "react";
 
-class Alert extends Component {
-    render() {
+function Alert(props) {
         return (
             <div className="alert alert-warning" role="alert">
-                {this.props.message}
+                {props.message}
             </div>
-        )
-    }
+        );
 }
 
 export default Alert;
