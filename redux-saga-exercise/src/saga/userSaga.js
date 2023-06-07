@@ -9,8 +9,10 @@ import {
     DELETE_USER_SUCCESS
 } from "../redux/action";
 
-// const BaseURL = "https://my-json-server.typicode.com/phonghoanguit87/fake-api-demo";
-const BaseURL = "http://localhost:3004";
+const BaseURL = "https://my-json-server.typicode.com/phonghoanguit87/fake-api-demo";
+// Installed json-server: npm install -g json-server
+// Run json-server: json-server --watch db.json --port 3004
+// const BaseURL = "http://localhost:3004";
 
 function* getUser(action) {
     try {
