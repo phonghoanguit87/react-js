@@ -23,23 +23,26 @@ function Login() {
     
     return (
         <form>
-            <label>User name</label>
+            <label className="form-label">User name</label>
             <input
                 id="username"
                 onChange={e => setValueForUser("username", e.target.value)}
                 type="text"
+                className="form-control"
             />
-            <label>Password</label>
+            <label className="form-label">Password</label>
             <input
                 id="password"
                 onChange={e => setValueForUser("password", e.target.value)}
                 type="password"
+                className="form-control"
             />
             <button
                 type="button"
                 onClick={() => {
                     login();
                 }}
+                className="btn btn-primary"
             >
                 Login
             </button>

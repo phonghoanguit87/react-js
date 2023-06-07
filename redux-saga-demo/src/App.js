@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import {Provider} from "react-redux";
 import store from "./redux/store";
 import User from "./components/User";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
