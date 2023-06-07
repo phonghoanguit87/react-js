@@ -1,4 +1,5 @@
 import {Component} from "react";
+import React from 'react'
 
 import Screen from "./components/Screen";
 import Number from "./components/Number";
@@ -9,7 +10,8 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        
+        this.screenValue = React.createRef()
+    
         this.state = {
             result: 0,
             screenNumber: "",
@@ -26,10 +28,25 @@ class App extends Component {
     }
     
     handleNumber (number) {
-        this.setState({
-            screenNumber: this.state.screenNumber + number
-        })
+        if ( this.state.screenNumber === "") {
+            this.setState({
+                screenNumber: number
+            })
+            console.log(this.state);
+    
+            this.screenValue.current.handleValue(number)
+        } else {
+            this.setState({
+                screenNumber: this.state.screenNumber + number
+            })
+            this.screenValue.current.handleValue(this.state.screenNumber)
+        }
     }
+    
+    /**
+     *
+     * Chi can 1 number vaf cong them s tren manhinh
+     */
     
     handleOperator(operator) {
         this.setState({
@@ -41,6 +58,9 @@ class App extends Component {
                 numberFirst: parseInt(this.state.screenNumber),
                 screenNumber: "",
             })
+            this.screenValue.current.handleValue(this.state.screenNumber)
+        } else {
+        
         }
     }
     
@@ -49,6 +69,7 @@ class App extends Component {
             this.setState({
                 numberSecond: parseInt(this.state.screenNumber),
             })
+            this.screenValue.current.handleValue(this.state.screenNumber)
         }
         
         switch(this.state.operator) {
@@ -77,6 +98,7 @@ class App extends Component {
         this.setState({
             screenNumber: this.state.result
         })
+        this.screenValue.current.handleValue(this.state.screenNumber)
         console.log(this.state)
     }
     
@@ -95,7 +117,7 @@ class App extends Component {
         return (
             <div className="container">
                 <div className="board">
-                    <Screen value={this.state.screenNumber}/>
+                    <Screen ref={this.screenValue}/>
                     <Number value={1} type={"number"} handleNumber={this.handleNumber}/>
                     <Number value={2} type={"number"} handleNumber={this.handleNumber}/>
                     <Number value={3} type={"number"} handleNumber={this.handleNumber}/>

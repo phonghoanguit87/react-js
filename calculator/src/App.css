@@ -13,9 +13,10 @@ button {
 }
 
 .board {
-  margin: 10px;
+  margin: 12px;
 }
 
 .screen {
   width: 205px;
+  height: 30px;
 }
