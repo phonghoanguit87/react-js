@@ -32,7 +32,7 @@ const Cart  = () => {
             <div>{nodes}</div>
             <p>Total: ${total}</p>
             <button onClick={handleCheckout}
-                    disabled={hasProducts ? '' : 'disabled'}>
+                    disabled={hasProducts ? '' : true}>
                 Checkout
             </button>
         </div>
